@@ -7,9 +7,15 @@
 int handle_operators(char opr, int o1, int o2);
 int precedence(char op);
 
-int main()
+int main(int argc, char **argv)
 {
-    char *tokens = "2/1*5";
+    if (argc == 1)
+    {
+        printf("write an expression...");
+        exit(-1);
+    }
+
+    char *tokens = argv[1];
 
     Stack *value_stack = Create_Stack(15);
     Stack_Char *operator_stack = Create_StackChar(15);
